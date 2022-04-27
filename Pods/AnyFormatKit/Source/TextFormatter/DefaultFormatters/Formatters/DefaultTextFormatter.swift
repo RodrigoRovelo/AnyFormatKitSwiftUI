@@ -12,7 +12,7 @@ open class DefaultTextFormatter: TextFormatter, TextUnformatter {
   // MARK: - Fields
   
   /// String, that will use for formatting of string replacing patter symbol, example: patternSymbol - "#", format - "### (###) ###-##-##"
-  public let textPattern: String
+  public var textPattern: String
   
   /// Symbol that will be replace by input symbols
   public let patternSymbol: Character
@@ -87,6 +87,10 @@ open class DefaultTextFormatter: TextFormatter, TextUnformatter {
     return unformatted
   }
   
+    public func changePattern(_ textPattern: String) {
+        self.textPattern = textPattern
+    }
+    
   public struct Constants {
     public static let defaultPatternSymbol: Character = "#"
   }

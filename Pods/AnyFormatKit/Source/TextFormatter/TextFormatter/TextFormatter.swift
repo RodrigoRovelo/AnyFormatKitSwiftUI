@@ -19,6 +19,7 @@ public protocol TextFormatter {
    - Returns: Formatted text
    */
   func format(_ unformattedText: String?) -> String?
+    func changePattern(_ textPattern: String)
 }
 
 

@@ -18,6 +18,7 @@ public struct FormatTextField: UIViewRepresentable {
     // MARK: - Data
     
     private let placeholder: String?
+    private let textPattern: String
     @Binding public var unformattedText: String
     
     // MARK: - Appearence
@@ -62,6 +63,7 @@ public struct FormatTextField: UIViewRepresentable {
                 patternSymbol: Character = "#") {
         self._unformattedText = unformattedText
         self.placeholder = placeholder
+        self.textPattern = textPattern
         self.formatter = DefaultTextInputFormatter(textPattern: textPattern, patternSymbol: patternSymbol)
     }
     
@@ -76,6 +78,7 @@ public struct FormatTextField: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIViewType, context: Context) {
+        formatter.changePattern(textPattern)
         let formattedText = formatter.format(unformattedText)
         if uiView.text != formattedText {
             uiView.text = formattedText
