@@ -87,10 +87,6 @@ open class DefaultTextFormatter: TextFormatter, TextUnformatter {
     return unformatted
   }
   
-    public func changePattern(_ textPattern: String) {
-        self.textPattern = textPattern
-    }
-    
   public struct Constants {
     public static let defaultPatternSymbol: Character = "#"
   }
